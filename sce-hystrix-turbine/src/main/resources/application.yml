@@ -2,11 +2,16 @@ spring:
   application:
     name: sce-hystrix-turbine
 
+#turbine:
+#  app-config: sce-order-provider # 需要收集信息的服务名
+#  combine-host-port: true
+#  aggregator:
+#    cluster-config: default
+
 turbine:
-  app-config: sce-order-provider # 需要收集信息的服务名
-  combine-host-port: true
-  aggregator:
-    cluster-config: default
+  appConfig: sce-order-provider # 需要收集信息的服务名
+  cluster-name-expression: new String('default') # 指定集群名称，
+  combine-host-port: true # 同一主机上的服务通过主机名和端口号的组合来进行区分，默认以host来区分
 
 server:
   port: 10010
@@ -14,4 +19,4 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9090/eureka
+      defaultZone: http://localhost:9090/eureka,http://localhost:9091/eureka
