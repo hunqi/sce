@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sce-hystrix-turbine
+
+turbine:
+  app-config: sce-order-provider # 需要收集信息的服务名
+  combine-host-port: true
+  aggregator:
+    cluster-config: default
+
+server:
+  port: 10010
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka

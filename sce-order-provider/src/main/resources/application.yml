@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sce-order-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://sceserver2:9091/eureka,http://sceserver1:9090/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true # 使用ip注册
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

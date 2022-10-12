@@ -1,0 +1,12 @@
+spring:
+  profiles: s2
+eureka:
+  instance:
+    hostname: sceserver2
+  client:
+    service-url:
+      defaultZone:  http://sceserver1:9090/eureka
+    register-with-eureka: true
+    fetch-registry: true
+server:
+  port: 9091
